@@ -113,7 +113,7 @@ class Profileuser extends React.Component {
         if (this.state.email === "") {
             alerts.fire({ icon: 'error', text: 'Text still empty! ' })
         } else {
-            axios.patch(`${ process.env.REACT_APP_API_URL }/profile`, data, { headers: { Authorization: 'Bearer ' + this.props.token } })
+            axios.patch(`${process.env.REACT_APP_API_URL}/profile`, data, { headers: { Authorization: 'Bearer ' + this.props.token } })
                 .then(res => {
                     console.log(res.data)
                     if (res.data.success !== false) {
@@ -135,123 +135,50 @@ class Profileuser extends React.Component {
     }
 
     render() {
-        return ( <
-            div >
-            <
-            Navbarsubuser / >
-            <
-            div className = "container" >
-            <
-            div className = "row mt-5" >
-            <
-            div className = "col-sm-12" >
-            <
-            h3 className = "tittleuserprofile" > User Profile < /h3><hr / >
-            <
-            /div> <
-            /div> <
-            div className = "row mt-3" >
-            <
-            div className = "col-lg-4 sizeprofile" > {
-                /* <img src={process.env.REACT_APP_API_URL + this.props.data_user.images} className="sizeuserprofile mb-3" />
-                                            <CustomInput type="file" onChange={e => this.handleImages(e)} name="images" className="handleImage"/> */
-            }
-
-            <
-            label
-            for = "image" > < img src = { process.env.REACT_APP_API_URL + this.props.data_user.images }
-            name = "logo"
-            className = "sizeuserprofile  mb-3 mt-4" / > < /label> <
-            input type = "file"
-            name = "images"
-            id = "image"
-            hidden onChange = { e => this.handleImages(e) }
-            />
-
-            <
-            textarea onChange = { e => this.handleAddress(e) }
-            name = "address"
-            className = "form-control address"
-            rows = "3" > < /textarea>
-
-            <
-            /div> <
-            div className = "col-lg-1" > < /div> <
-            div className = "col-lg-6" >
-            <
-            small className = "balance" > Balance < /small><br / >
-            <
-            button onClick = { e => this.handleTopup(e) }
-            class = "btn btn-warning btntopup"
-            type = "submit" > Topup < /button> <
-            span className = "value" > Rp. { this.props.data_user.Saldo } < /span> <
-            input onChange = { e => this.handleBalance(e) }
-            type = "number"
-            width = "100px"
-            name = "balance"
-            className = "form-control mb-4"
-            id = "exampleFormControlInput1" / >
-
-
-            <
-            hr / >
-            <
-            div class = "form-group" >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = " sml" > Name < /label> <
-            input onChange = { e => this.handleName(e) }
-            name = "name"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_user.name_user }
-            disable / >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Email < /label> <
-            input onChange = { e => this.handleEmail(e) }
-            type = "email"
-            name = "email"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_user.email }
-            /> <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Gender < /label> <
-            select onChange = { e => this.handleGender(e) }
-            name = "gender"
-            class = "form-control"
-            id = "exampleFormControlSelect1" >
-            <
-            option > --Select gender-- < /option> <
-            option > Man < /option> <
-            option > Woman < /option> <
-            /select> <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Work < /label> <
-            input onChange = { e => this.handleWork(e) }
-            name = "work"
-            type = "text"
-            className = "form-control mb-4"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_user.work }
-            /> <
-            button onClick = { e => this.handleProfile(e) }
-            class = "btn btn-warning my-2 my-sm-0"
-            type = "submit" > Edit < /button> <
-            /div> <
-            /div> <
-            /div> <
-            /div>
-
-
-            <
-            /div>
+        return (
+            <div >
+                <Navbarsubuser />
+                <div className="container" >
+                    <div className="row mt-5" >
+                        <div className="col-sm-12" >
+                            <h3 className="tittleuserprofile" > User Profile </h3><hr />
+                        </div>
+                    </div>
+                    <div className="row mt-3" >
+                        <div className="col-lg-4 sizeprofile" > {}
+                            <label for="image" > < img src={process.env.REACT_APP_API_URL + this.props.data_user.images} name="logo" className="sizeuserprofile  mb-3 mt-4" /> </label> <input type="file" name="images" id="image" hidden onChange={e => this.handleImages(e)} />
+                            <textarea onChange={e => this.handleAddress(e)} name="address" className="form-control address" rows="3" ></textarea>
+                        </div>
+                        <div className="col-lg-1" >
+                        </div>
+                        <div className="col-lg-6" >
+                            <small className="balance">Balance</small><br />
+                            <button onClick={e => this.handleTopup(e)} class="btn btn-warning btntopup"
+                                type="submit" > Topup </button> <span className="value" > Rp. {this.props.data_user.Saldo} </span> <input onChange={e => this.handleBalance(e)} type="number" width="100px" name="balance" className="form-control mb-4" id="exampleFormControlInput1" />
+                            <hr />
+                            <div class="form-group" >
+                                <label for="exampleFormControlInput1" className=" sml" > Name </label>
+                                <input onChange={e => this.handleName(e)} name="name" type="text" className="form-control" id="exampleFormControlInput1" defaultValue={this.props.data_user.name_user}
+                                    disable />
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Email </label>
+                                <input onChange={e => this.handleEmail(e)} type="email" name="email" className="form-control"
+                                    id="exampleFormControlInput1" defaultValue={this.props.data_user.email} />
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Gender </label>
+                                <select onChange={e => this.handleGender(e)} name="gender" class="form-control" id="exampleFormControlSelect1" >
+                                    <option > --Select gender-- </option>
+                                    <option > Man </option>
+                                    <option > Woman </option>
+                                </select>
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Work </label>
+                                <input onChange={e => this.handleWork(e)} name="work" type="text" className="form-control mb-4" id="exampleFormControlInput1"
+                                    defaultValue={this.props.data_user.work} />
+                                <button onClick={e => this.handleProfile(e)} class="btn btn-warning my-2 my-sm-0"
+                                    type="submit">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

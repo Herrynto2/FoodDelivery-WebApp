@@ -61,11 +61,11 @@ class CreateRestaurant extends React.Component {
             alerts.fire({ icon: 'error', text: 'Data connot be empty' })
         } else {
             // console.log(data) // to get data fotm username & password
-            axios.post(`${process.env.REACT_APP_API_URL }/restaurant`, data, {
-                    headers: {
-                        Authorization: 'Bearer ' + this.props.token
-                    }
-                })
+            axios.post(`${process.env.REACT_APP_API_URL}/restaurant`, data, {
+                headers: {
+                    Authorization: 'Bearer ' + this.props.token
+                }
+            })
                 .then(res => {
                     console.log(res.data)
                     if (res.data.success !== false) {
@@ -84,103 +84,43 @@ class CreateRestaurant extends React.Component {
         }
     }
 
-    render() {
-        return ( <
-            div >
-            <
-            div className = "bgcreateresto" >
-            <
-            div className = "container" >
-            <
-            div className = "row justify-content-center" >
-            <
-            div className = "col-6-lg info-panel" >
-            <
-            div className = "row" >
-            <
-            div className = "col-lg formjoinus pl-5 pr-5 pt-4" >
-            <
-            div className = "titlecreateresto" > < label > Create your restaurant < /label></div >
-            <
-            div class = "form-group " >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "lbljoinus" > Restaurant 's name</label> <
-            input onChange = { e => this.handleName(e) }
-            name = "name"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            placeholder = "name ..."
-            required / >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "lbljoinus mt-3" > Location < /label> <
-            input onChange = { e => this.handleLocation(e) }
-            name = "location"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            placeholder = "Location ..."
-            required / >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "lbljoinus mt-3" > Description < /label> <
-            input onChange = { e => this.handleDesc(e) }
-            name = "owner"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            placeholder = "Description ..."
-            required / >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "lbljoinus mt-3" > Owner < /label> <
-            input onChange = { e => this.handleOwner(e) }
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            placeholder = "Created by ..."
-            required / >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = "lbljoinus mt-3" > Logo < /label> <
-            input onChange = { e => this.handleLogo(e) }
-            name = "logo"
-            type = "file"
-            className = "form-control-file"
-            id = "exampleFormControlInput1" / >
-            <
-            /div> <
-            div className = "text-center" >
-            <
-            button onClick = { e => this.handleCreate(e) }
-            type = "button"
-            className = " btn-auth btn btn-warning mt-4" > Create < /button> <
-            /div> <
-            div className = "text-center mt-3" >
-            <
-            Link to = "/home"
-            className = "text-decoration-none" > < span className = "signuplink" > Back to home < /span></Link >
-            <
-            /div> <
-            /div> <
-            /div> <
-            /div> <
-            /div> <
-            /div> <
-            /div> <
-            /div>
-        )
-    }
+render() {
+    return (
+        <div >
+            <div className="bgcreateresto" >
+                <div className="container" >
+                    <div className="row justify-content-center" >
+                        <div className="col-6-lg info-panel" >
+                            <div className="row" >
+                                <div className="col-lg formjoinus pl-5 pr-5 pt-4" >
+                                    <div className="titlecreateresto" > < label > Create your restaurant </label></div >
+                                        <div class="form-group " >
+                                            <label for="exampleFormControlInput1" className="lbljoinus" > Restaurant 's name</label> <input onChange={e => this.handleName(e)} name="name" type="text"
+                                                className="form-control" id="exampleFormControlInput1" placeholder="name ..." required />
+                                            <label for="exampleFormControlInput1" className="lbljoinus mt-3" > Location </label>
+                                            <input onChange={e => this.handleLocation(e)} name="location" type="text" className="form-control" id="exampleFormControlInput1" placeholder="Location ..." required />
+                                            <label for="exampleFormControlInput1" className="lbljoinus mt-3" > Description </label> <input onChange={e => this.handleDesc(e)} name="owner" type="text" className="form-control" id="exampleFormControlInput1" placeholder="Description ..." required />
+                                            <label for="exampleFormControlInput1" className="lbljoinus mt-3" > Owner </label> <input onChange={e => this.handleOwner(e)} type="text" className="form-control" id="exampleFormControlInput1" placeholder="Created by ..." required />
+                                                <label for="exampleFormControlInput1" className="lbljoinus mt-3" > Logo </label> <input onChange={e => this.handleLogo(e)} name="logo" type="file" className="form-control-file" id="exampleFormControlInput1" />
+                                            </div>
+                                            <div className="text-center" >
+                                                <button onClick={e => this.handleCreate(e)} type="button" className=" btn-auth btn btn-warning mt-4" > Create </button>
+                                            </div>
+                                            <div className="text-center mt-3" >
+                                                <Link to="/home" className="text-decoration-none" > < span className="signuplink" > Back to home </span></Link >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    )
+}
 }
 
 const mapStateToProps = state => ({
-    token: state.auth.token
+                        token: state.auth.token
 })
 export default connect(mapStateToProps)(CreateRestaurant)

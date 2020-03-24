@@ -32,7 +32,7 @@ class Checkout extends React.Component {
     }
 
     ////Checkout
-    handleCheckout = async(e) => {
+    handleCheckout = async (e) => {
         const data = {
             total_item: this.state.total_item
         }
@@ -41,10 +41,10 @@ class Checkout extends React.Component {
             alerts.fire({ icon: 'error', text: 'Please input value minimal 1!' })
         } else {
             await axios.post(`${process.env.REACT_APP_API_URL}/checkout/${this.props.match.params.id}`, data, {
-                    headers: {
-                        Authorization: 'Bearer ' + this.props.token
-                    }
-                })
+                headers: {
+                    Authorization: 'Bearer ' + this.props.token
+                }
+            })
                 .then(res => {
                     console.log(res)
                     if (res.data.success !== false) {
@@ -67,111 +67,65 @@ class Checkout extends React.Component {
     }
 
     render() {
-        return ( <
-            div >
-            <
-            Navbarsubuser / >
-            <
-            div className = 'container' >
-            <
-            h4 className = " bold mt-5 mb-5 text-center " > Checkout Item < /h4> {
-                this.props.data_cartID && ( <
-                    div className = "card-body-link" >
-                    <
-                    div className = "card mb-5 card-profil" >
-                    <
-                    div className = "row no-gutters" >
-                    <
-                    div className = "row no-gutters" >
-                    <
-                    img src = { process.env.REACT_APP_API_URL + this.props.data_cartID.images }
-                    className = "card-img card-img-detail"
-                    alt = "..." / >
-                    <
-                    /div> <
-                    div className = "col-md-6" >
-                    <
-                    div className = "card-body" >
-                    <
-                    h5 className = "cart-titles" > { this.props.data_cartID.name_item } < /h5> <
-                    hr / >
-                    <
-                    h6 className = "cart-resto" > { this.props.data_cartID.name_restaurant } - { this.props.data_cartID.location } < /h6> <
-                    p className = "text-muted" > { this.props.data_cartID.description } < /p> <
-                    h6 className = "cart-price" > Rp. { this.props.data_cartID.price } < span className = "text-" > /item</span > < /h6> <
-                    /div> <
-                    /div> <
-                    /div> <
-                    /div> <
-                    /div>
-                )
-            }
+        return (
+            <div >
+                <Navbarsubuser />
+                <div className='container' >
+                    <h4 className=" bold mt-5 mb-5 text-center " > Checkout Item </h4>
+                    {this.props.data_cartID && (<div className="card-body-link" >
+                        <div className="card mb-5 card-profil" >
+                            <div className="row no-gutters" >
+                                <div className="row no-gutters" >
+                                    <img src={process.env.REACT_APP_API_URL + this.props.data_cartID.images} className="card-img card-img-detail" alt="..." />
+                                </div>
+                                <div className="col-md-6" >
+                                    <div className="card-body" >
+                                        <h5 className="cart-titles" > {this.props.data_cartID.name_item} </h5> <hr />
+                                        <h6 className="cart-resto" > {this.props.data_cartID.name_restaurant} - {this.props.data_cartID.location} </h6> <p className="text-muted" > {this.props.data_cartID.description} </p>
+                                        <h6 className="cart-price" > Rp. {this.props.data_cartID.price} < span className="text-" > item</span > </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> </div>
+                    )
+                    }
 
-            <
-            div class = "card" >
-            <
-            div class = "card-body" >
-            <
-            div className = "text-checkout bold" > Checkout:
-            <
-            button onClick = {
-                () => { this.handleModal() } }
-            className = "ml-3 btn btn-danger bold" > Rp. { this.props.checkout } < /button> <
-            /div> <
-            /div> <
-            /div> <
-            /div>
+                    <div class="card" >
+                        <div class="card-body" >
+                            <div className="text-checkout bold" > Checkout:
+            <button onClick={() => { this.handleModal() }} className="ml-3 btn btn-danger bold" > Rp. {this.props.checkout} </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            { /* Add Items Hide*/ } {
-                this.props.data_cartID && ( <
-                    Modal centered show = { this.state.show }
-                    onHide = {
-                        () => this.handleModal() } >
-                    <
-                    Modal.Header closeButton > < span className = "bold text-muted" > { this.props.data_cartID.name_item } < /span></Modal.Header >
-                    <
-                    Modal.Body className = "text-center" >
-                    <
-                    div class = "card mb-3" >
-                    <
-                    div class = "row no-gutters" >
-                    <
-                    div class = "col-md-4" >
-                    <
-                    img src = { process.env.REACT_APP_API_URL + this.props.data_cartID.images }
-                    className = "imgshapes" / >
-                    <
-                    /div> <
-                    div class = "col-md-8 text-left" >
-                    <
-                    div class = "card-body card-bodies" >
-                    <
-                    h6 className = "cart-prices" > Rp. { this.props.data_cartID.price } < span > /item</span > < /h6>
+                { /* Add Items Hide*/} {
+                    this.props.data_cartID && (
+                        <Modal centered show={this.state.show} onHide={() => this.handleModal()} >
+                            <Modal.Header closeButton > < span className="bold text-muted" > {this.props.data_cartID.name_item}
+                            </span></Modal.Header >
+                            <Modal.Body className="text-center" >
+                                <div class="card mb-3" >
+                                    <div class="row no-gutters" >
+                                        <div class="col-md-4" >
+                                            <img src={process.env.REACT_APP_API_URL + this.props.data_cartID.images} className="imgshapes" />
+                                        </div>
+                                        <div class="col-md-8 text-left" >
+                                            <div class="card-body card-bodies" >
+                                                <h6 className="cart-prices" > Rp. {this.props.data_cartID.price} <span>item</span > </h6>
+                                                <input type="number" onChange={e => this.handleValue(e)} name="value" className="cartvalue form-control" min="1" placeholder="input value ..." defaultValue={this.props.data_cartID.total_item} />
+                                                <div className="valuealign" > < button onClick={e => this.handleCheckout(e)} type="button"
+                                                    className="btn-carts btn-auth btn btn-danger mt-3" > Checkout </button></div >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Modal.Body>
+                        </Modal>
+                    )
+                }
 
-                    <
-                    input type = "number"
-                    onChange = { e => this.handleValue(e) }
-                    name = "value"
-                    className = "cartvalue form-control"
-                    min = "1"
-                    placeholder = "input value ..."
-                    defaultValue = { this.props.data_cartID.total_item }
-                    /> <
-                    div className = "valuealign" > < button onClick = { e => this.handleCheckout(e) }
-                    type = "button"
-                    className = "btn-carts btn-auth btn btn-danger mt-3" > Checkout < /button></div >
-                    <
-                    /div> <
-                    /div> <
-                    /div> <
-                    /div> <
-                    /Modal.Body> <
-                    /Modal>
-                )
-            }
-
-            <
-            /div>
+            </div>
         )
     }
 }

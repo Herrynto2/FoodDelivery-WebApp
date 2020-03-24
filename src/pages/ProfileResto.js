@@ -70,7 +70,7 @@ class Profilerestaurant extends React.Component {
         if (this.state.name_restaurant === "") {
             alerts.fire({ icon: 'error', text: 'Text still empty! ' })
         } else {
-            axios.patch(`${ process.env.REACT_APP_API_URL }/restaurant`, data, { headers: { Authorization: 'Bearer ' + this.props.token } })
+            axios.patch(`${process.env.REACT_APP_API_URL}/restaurant`, data, { headers: { Authorization: 'Bearer ' + this.props.token } })
                 .then(res => {
                     console.log(res.data)
                     if (res.data.success !== false) {
@@ -93,97 +93,39 @@ class Profilerestaurant extends React.Component {
 
 
     render() {
-        return ( <
-            div >
-            <
-            Navbarsubuser / >
-            <
-            div className = "container" >
-            <
-            div className = "row mt-5" >
-            <
-            div className = "col-sm-12" >
-            <
-            h3 className = "tittleuserprofile" > Restaurant Profile <
-            /h3><hr / >
-
-            <
-            /div> <
-            /div>
-
-            <
-            div className = "row mt-3" >
-            <
-            div className = "col-lg-4 sizeprofile" >
-            <
-            Link to = "/items" > < button class = " btnitems btn btn-warning my-2 my-sm-0"
-            type = "submit" > Items < /button></Link >
-            <
-            label
-            for = "image" > < img src = { process.env.REACT_APP_API_URL + this.props.data_admin.logo }
-            name = "logo"
-            className = "sizeuserprofile mb-3 mt-4" / > < /label> <
-            input type = "file"
-            name = ""
-            id = "image"
-            hidden onChange = { e => this.handleLogo(e) }
-            /> <
-            /div> <
-            div className = "col-lg-1" > < /div> <
-            div className = "col-lg-6" >
-            <
-            div class = "form-group" >
-            <
-            label
-            for = "exampleFormControlInput1"
-            className = " sml" > Restaurant < /label> <
-            input onChange = { e => this.handleName(e) }
-            name = "name"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_admin.name_restaurant }
-            /> <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Owner < /label> <
-            input onChange = { e => this.handleOwner(e) }
-            name = "owner"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_admin.created_by }
-            /> <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Description < /label> <
-            input onChange = { e => this.handleDesc(e) }
-            name = "description"
-            type = "text"
-            className = "form-control"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_admin.description }
-            /> <
-            label
-            for = "exampleFormControlInput1"
-            className = "mt-2 sml" > Location < /label> <
-            input onChange = { e => this.handleLocation(e) }
-            name = "location"
-            type = "text"
-            className = "form-control mb-4"
-            id = "exampleFormControlInput1"
-            defaultValue = { this.props.data_admin.location }
-            /> <
-            button onClick = { e => this.handleEdit(e) }
-            class = "btn btn-warning my-2 my-sm-0"
-            type = "submit" > Edit < /button> <
-            /div> <
-            /div> <
-            /div> <
-            /div>
-
-            <
-            /div>
+        return (
+            <div >
+                <Navbarsubuser />
+                <div className="container" >
+                    <div className="row mt-5" >
+                        <div className="col-sm-12" >
+                            <h3 className="tittleuserprofile" > Restaurant Profile </h3><hr />
+                        </div>
+                    </div>
+                    <div className="row mt-3" >
+                        <div className="col-lg-4 sizeprofile" >
+                            <Link to="/items" > < button class=" btnitems btn btn-warning my-2 my-sm-0"
+                                type="submit" > Items </button></Link >
+                            <label for="image" > < img src={process.env.REACT_APP_API_URL + this.props.data_admin.logo} name="logo" className="sizeuserprofile mb-3 mt-4" /> </label> <input type="file" name="" id="image" hidden onChange={e => this.handleLogo(e)} />
+                        </div>
+                        <div className="col-lg-1" >
+                        </div>
+                        <div className="col-lg-6" >
+                            <div class="form-group" >
+                                <label for="exampleFormControlInput1" className=" sml" > Restaurant </label>
+                                <input onChange={e => this.handleName(e)} name="name" type="text" className="form-control" id="exampleFormControlInput1" defaultValue={this.props.data_admin.name_restaurant} />
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Owner </label>
+                                <input onChange={e => this.handleOwner(e)} name="owner" type="text" className="form-control"
+                                    id="exampleFormControlInput1" defaultValue={this.props.data_admin.created_by} />
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Description </label> < input onChange={e => this.handleDesc(e)} name="description" type="text" className="form-control" id="exampleFormControlInput1" defaultValue={this.props.data_admin.description} />
+                                <label for="exampleFormControlInput1" className="mt-2 sml" > Location </label> <input onChange={e => this.handleLocation(e)} name="location" type="text" className="form-control mb-4"
+                                    id="exampleFormControlInput1" defaultValue={this.props.data_admin.location} />
+                                <button onClick={e => this.handleEdit(e)} class="btn btn-warning my-2 my-sm-0" type="submit" > Edit </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

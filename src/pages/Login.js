@@ -19,13 +19,13 @@ class Login extends React.Component {
         this.state = {
             username: '',
             password: '',
-            load:false
+            load: false
         }
     }
     fetchData = () => {
-        this.setState({load:true})
+        this.setState({ load: true })
         setTimeout(() => {
-            this.setState({load:false})
+            this.setState({ load: false })
         }, 2000)
     }
 
@@ -56,7 +56,7 @@ class Login extends React.Component {
             axios.post(`${process.env.REACT_APP_API_URL}/login`, data)
                 .then(res => {
                     console.log(res.data.data.token)
-                    if (res.data.success === true) { 
+                    if (res.data.success === true) {
                         try {
                             // this.fetchData()
                             this.props.loginUser(res.data.data.token)
@@ -100,9 +100,9 @@ class Login extends React.Component {
                                             {/* {load && <Spinner color="warning" />} */}
                                         </div>
                                         <div className="text-center mt-4">
-                                            <Link to="/signup" className="text-decoration-none"><span className="signuplink">Create new account</span></Link><br/>
+                                            <Link to="/signup" className="text-decoration-none"><span className="signuplink">Create new account</span></Link><br />
                                             <Link to="/home" className="text-decoration-none">
-                                            <span className="homelink signuplink">Back to home</span></Link>
+                                                <span className="homelink signuplink">Back to home</span></Link>
                                         </div>
                                     </div>
                                 </div>

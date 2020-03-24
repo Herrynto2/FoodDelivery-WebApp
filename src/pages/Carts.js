@@ -12,16 +12,14 @@ class CartsItem extends React.Component {
         }
 
         render() {
-                return ( <
-                        div >
+                return ( < div >
                         <
                         Navbarsubuser / > { console.log(this.props.data_cart) } <
                         div className = 'container margincart' >
                         <
-                        h4 className = " bold mt-5 text-center mb-5" > Cart < /h4> <
+                        h4 className = " bold mt-5 text-center mb-5" > Cart < /h4>  <
                         div className = "row " > {
-                            this.props.data_cart && this.props.data_cart.map((val, idx) => ( <
-                                    Cart key = { idx }
+                            this.props.data_cart && this.props.data_cart.map((val, idx) => ( < Cart key = { idx }
                                     images = { val.images }
                                     items = { val.name_item }
                                     restaurant = { val.name_restaurant }
@@ -29,11 +27,9 @@ class CartsItem extends React.Component {
                                     id = { val.id_item }
                                     id_cart = { val.id_cart }
                                     total_item = { val.total_item }
-                                    />))} <
-                                    /div> <
-                                    /div>
-
-                                    { console.log(this.props.token) } <
+                                    />))}  < /
+                                    div > <
+                                    /div> { console.log(this.props.token) } <
                                     Footer / >
                                     <
                                     /div>

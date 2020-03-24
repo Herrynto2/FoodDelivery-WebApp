@@ -10,15 +10,21 @@ class Home extends React.Component {
 
 
     render() {
-        return ( < div > { /* NAVBAR */ } <
-            Navbars / > { /* JUMBOTRON */ } <
-            Jumbotrons / > { /* SLIDER */ } <
-            Slider / > { /* JOIN US */ } <
-            Joinus / > { /* SliderResto */ } <
-            Slidersresto / > { /* FOOTER */ } <
-            Footer / >
-            <
-            /div>
+        return ( 
+        < div > 
+        { /* NAVBAR */ } 
+            <Navbars/> 
+        { /* JUMBOTRON */ } 
+        <Jumbotrons /> 
+        { /* SLIDER */ } 
+        <Slider /> 
+        { /* JOIN US */ } 
+        <Joinus /> 
+        { /* SliderResto */ } 
+        <Slidersresto /> 
+        { /* FOOTER */ } 
+        <Footer />
+        </div>
         )
     }
 }

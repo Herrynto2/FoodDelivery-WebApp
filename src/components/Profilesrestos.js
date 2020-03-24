@@ -10,44 +10,26 @@ class Profilerestos extends React.Component {
     }
 
     render() {
-        return ( <
-            div >
-            <
-            div className = "container" >
-            <
-            Link to = "/restaurantprofile"
-            className = "card-body-link" >
-            <
-            div className = "card mb-5 mt-5 card-body-hover" >
-            <
-            div className = "row no-gutters" >
-            <
-            div className = "row no-gutters" >
-            <
-            img src = { process.env.REACT_APP_API_URL + this.props.data_admin.logo }
-            className = "card-img card-img-profile" / >
-            <
-            /div> <
-            div className = "col-md-8" >
-            <
-            div className = "card-body " >
-            <
-            h5 className = "card-title" > { this.props.data_admin.name_restaurant } < /h5> <
-            hr / >
-            <
-            p className = "card-text" > < small className = "text-muted" > Last updated { this.props.data_admin.date_updated } < /small></p >
-            <
-            p className = "card-text text-muted mb-5" > { this.props.data_admin.description } < /p> <
-            h5 className = "card-text text-muted" > { this.props.data_admin.location } < /h5>
-
-            <
-            /div> <
-            /div> <
-            /div> <
-            /div> <
-            /Link> <
-            /div> <
-            /div>
+        return (
+            <div >
+                <div className="container" >
+                    <Link to="/restaurantprofile" className="card-body-link" >
+                        <div className="card mb-5 mt-5 card-body-hover" >
+                            <div className="row no-gutters" >
+                                <div className="row no-gutters" >
+                                    <img src={process.env.REACT_APP_API_URL + this.props.data_admin.logo} className="card-img card-img-profile" />
+                                </div> <div className="col-md-8" >
+                                    <div className="card-body " >
+                                        <h5 className="card-title" > {this.props.data_admin.name_restaurant} </h5> <hr />
+                                        <p className="card-text" > < small className="text-muted" > Last updated {this.props.data_admin.date_updated} </small></p >
+                                        <p className="card-text text-muted mb-5" > {this.props.data_admin.description} </p> <h5 className="card-text text-muted" > {this.props.data_admin.location} </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
         )
     }
 }
