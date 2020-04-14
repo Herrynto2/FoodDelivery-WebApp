@@ -26,8 +26,3 @@ export const getCartItemID = (id, token) => dispatch => {
         })
         .catch(err => console.log(err))
 }
-
-// const mapStateToProps = state => ({
-//     token: state.auth.token
-// })
-// export default connect(mapStateToProps)

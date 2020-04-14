@@ -22,7 +22,7 @@ class Items extends React.Component {
                     <div className="container margincontent" >
                         <div className="row" >
                             <div className="col-md-12" > < h4 className="text-center bold mt-5 mb-5" > List Items </h4></div >
-                        </div>
+                          </div>
                         <div className="row " >
                             {this.props.data_items.map((val, idx) => (
                                 <ListItems key={idx} images={val.images} items={val.name_item} restaurant={val.name_restaurant} prices={val.price} id={val.id_item} />))}
